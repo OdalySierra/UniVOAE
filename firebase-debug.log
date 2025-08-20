@@ -1,0 +1,42 @@
+[debug] [2025-08-18T00:37:12.116Z] ----------------------------------------------------------------------
+[debug] [2025-08-18T00:37:12.119Z] Command:       C:\nodejs\node.exe C:\nodejs\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2025-08-18T00:37:12.119Z] CLI Version:   14.11.2
+[debug] [2025-08-18T00:37:12.120Z] Platform:      win32
+[debug] [2025-08-18T00:37:12.120Z] Node Version:  v22.17.1
+[debug] [2025-08-18T00:37:12.120Z] Time:          Sun Aug 17 2025 18:37:12 GMT-0600 (hora estándar central)
+[debug] [2025-08-18T00:37:12.120Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-08-18T00:37:12.122Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2025-08-18T00:37:12.466Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-18T00:37:12.466Z] > authorizing via signed-in user (odalyyojanas@gmail.com)
+[debug] [2025-08-18T00:37:12.466Z] [iam] checking project univoae for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-08-18T00:37:12.467Z] Checked if tokens are valid: false, expires at: 1754258841332
+[debug] [2025-08-18T00:37:12.467Z] Checked if tokens are valid: false, expires at: 1754258841332
+[debug] [2025-08-18T00:37:12.467Z] > refreshing access token with scopes: []
+[debug] [2025-08-18T00:37:12.468Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-08-18T00:37:12.468Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-08-18T00:37:12.723Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-08-18T00:37:12.723Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2025-08-18T00:37:12.755Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-08-18T00:37:12.755Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-08-18T00:37:12.779Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/univoae:testIamPermissions [none]
+[debug] [2025-08-18T00:37:12.779Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/univoae:testIamPermissions x-goog-quota-user=projects/univoae
+[debug] [2025-08-18T00:37:12.779Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/univoae:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-08-18T00:37:13.213Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/univoae:testIamPermissions 200
+[debug] [2025-08-18T00:37:13.213Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/univoae:testIamPermissions {}
+[debug] [2025-08-18T00:37:13.214Z] [iam] error while checking permissions, command may fail: Authorization failed. This account is missing the following required permissions on project univoae:
+
+  firebase.projects.get
+  firebasehosting.sites.update
+[debug] [2025-08-18T00:37:13.215Z] Checked if tokens are valid: true, expires at: 1755481031755
+[debug] [2025-08-18T00:37:13.216Z] Checked if tokens are valid: true, expires at: 1755481031755
+[debug] [2025-08-18T00:37:13.216Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/univoae [none]
+[debug] [2025-08-18T00:37:13.697Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/univoae 403
+[debug] [2025-08-18T00:37:13.697Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/univoae {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2025-08-18T00:37:13.699Z] Request to https://firebase.googleapis.com/v1beta1/projects/univoae had HTTP Error: 403, The caller does not have permission
+[debug] [2025-08-18T00:37:13.701Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/univoae had HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\nvm\v22.17.1\node_modules\firebase-tools\lib\responseToError.js:52:12)
+    at RetryOperation._fn (C:\nvm\v22.17.1\node_modules\firebase-tools\lib\apiv2.js:312:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[error] 
+[error] Error: Failed to get Firebase project univoae. Please make sure the project exists and your account has permission to access it.
