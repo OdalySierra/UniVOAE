@@ -17,6 +17,7 @@ body, html, .layout {
   display: flex;
   height: 100vh;
   overflow: hidden;
+  flex-direction: column; /* Mobile First: apilado */
 }
 
 /* Header móvil / franja PC */
@@ -166,15 +167,41 @@ body, html, .layout {
   margin-left: 250px;
 }
 
-/* Media queries escritorio */
+/* Ejemplo de grid adaptable dentro del contenido */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* móvil: 1 columna */
+  gap: 1rem;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* ===================== BREAKPOINTS ===================== */
+
+/* Teléfonos grandes */
+@media (min-width: 480px) {
+  .mobile-header {
+    padding: 1rem 2rem;
+  }
+  .main-grid {
+    grid-template-columns: 1fr 1fr; /* 2 columnas */
+  }
+}
+
+/* Tablets */
 @media (min-width: 768px) {
   .mobile-header {
-    display: flex; /* mostrar franja en PC */
+    display: flex; /* mostrar franja en tablets/pc */
   }
 
   .sidebar {
     top: 50px;
-    left: -250px; /* oculto por defecto en PC también */
+    left: -250px; /* oculto por defecto en tablet también */
     height: calc(100% - 50px);
   }
 
@@ -186,5 +213,20 @@ body, html, .layout {
     margin-left: 0;
     margin-top: 50px;
     overflow-y: hidden;
+  }
+
+  .main-grid {
+    grid-template-columns: 1fr 1fr; /* 2 columnas en tablet */
+  }
+}
+
+/* Escritorio */
+@media (min-width: 1024px) {
+  .main-content {
+    padding: 2rem 3rem;
+  }
+
+  .main-grid {
+    grid-template-columns: 1fr 1fr 1fr; /* 3 columnas en desktop */
   }
 }

@@ -15,6 +15,7 @@ body, html, .layout {
 /* Layout */
 .layout {
   display: flex;
+  flex-direction: column; /* Mobile first: apilado */
   height: 100vh;
   overflow: hidden;
 }
@@ -72,10 +73,9 @@ body, html, .layout {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 4rem 1rem 1rem 1rem; /* más espacio arriba: 2rem */
+  padding: 4rem 1rem 1rem 1rem;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
-
 
 .logo {
   font-size: 2rem;
@@ -83,7 +83,7 @@ body, html, .layout {
 
 .username {
   flex-grow: 1;
-  margin-left: 1rem; /* espacio lateral para no chocar con la hamburguesa */
+  margin-left: 1rem;
   font-weight: 600;
   white-space: nowrap;
   overflow: hidden;
@@ -91,7 +91,7 @@ body, html, .layout {
 }
 
 .close-btn {
-  display: inline-flex; /* siempre visible */
+  display: inline-flex;
   margin-left: 0.5rem;
 }
 
@@ -128,6 +128,8 @@ body, html, .layout {
 .sidebar-footer {
   padding: 1rem 1.5rem;
   border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: center;
 }
 
 .btn-logout {
@@ -168,9 +170,70 @@ body, html, .layout {
   margin-left: 250px;
 }
 
+/* Grid adaptable en contenido */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 1rem;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* ===================== BREAKPOINTS ===================== */
+
+/* Teléfonos grandes */
+@media (min-width: 480px) {
+  .mobile-header {
+    padding: 1rem 2rem;
+  }
+
+  .main-grid {
+    grid-template-columns: 1fr 1fr; 
+  }
+}
+
+/* Tablets */
 @media (min-width: 768px) {
   .mobile-username {
-    margin-left: auto;   /* empuja el texto a la derecha */
-    margin-right: 1rem;  /* opcional, un poco de espacio desde el borde */
+    margin-left: auto;
+    margin-right: 1rem;
+  }
+
+  .sidebar {
+    top: 0;
+    height: 100%;
+  }
+
+  .main-content {
+    margin-left: 0;
+    margin-top: 50px;
+  }
+
+  .main-grid {
+    grid-template-columns: 1fr 1fr; 
+  }
+}
+
+/* Escritorio */
+@media (min-width: 1024px) {
+  .main-content {
+    padding: 2rem 3rem;
+  }
+
+  .main-grid {
+    grid-template-columns: 1fr 1fr 1fr; 
+  }
+
+  .sidebar {
+    left: 0; 
+  }
+
+  .main-content.menu-open {
+    margin-left: 250px;
   }
 }
